@@ -3,6 +3,5 @@
     border-top: 1px solid black;
     display: flex;
     justify-content: space-evenly;
-    position: fixed;
-    width:68%;
+    max-width:100%;
 }

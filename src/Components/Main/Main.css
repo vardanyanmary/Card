@@ -1,6 +1,10 @@
-.Main{
-    min-height: 90vh;
-    display: flex;
-    justify-content: flex-start;
-    /* width: 80%; */
+.Main {
+  min-height: 90vh;
+  display: flex;
+  justify-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  grid-row-gap: 15px;
+  grid-column-gap: 35px;
+  margin-top: 25px;
 }
