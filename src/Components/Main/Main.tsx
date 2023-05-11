@@ -1,4 +1,4 @@
-import { Component, FC } from "react";
+import { FC } from "react";
 import "./Main.css";
 import Card from "../Card/Card";
 
