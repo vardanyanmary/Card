@@ -37,7 +37,7 @@ class App extends Component<{}, AppState> {
     this.setState({ cards: deletedCard });
   };
 
-  render() {
+  show() {
     const { cards } = this.state;
 
     return (

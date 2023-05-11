@@ -7,7 +7,7 @@ interface HeaderProps {
 }
 
 class Header extends Component <HeaderProps> {
-  render() {
+  show() {
     const { 
       addCard, 
       sortCard 
