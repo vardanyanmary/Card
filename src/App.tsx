@@ -20,13 +20,15 @@ class App extends Component<{}, AppState> {
       id: Math.random(),
       number: Math.floor(Math.random() * 1000),
     };
-    this.setState((prevState) => ({ cards: [...prevState.cards, newOnes] }));
+    this.setState((prevState) => ({ 
+      cards: [...prevState.cards, newOnes] 
+    }));
   };
 
   handleSortCard = () => {
     const sortedOnes = [...this.state.cards].sort(
       (a, b) => a.number - b.number
-    );
+      );
     this.setState({ cards: sortedOnes });
   };
 
@@ -42,8 +44,8 @@ class App extends Component<{}, AppState> {
       <div className="App">
         <div className="main">
           <Header
-            handleAddCard={this.handleAddCard}
-            handleSortCard={this.handleSortCard}
+            addCard={this.handleAddCard}
+            sortCard={this.handleSortCard}
           />
           <Main cards={cards} handleDelete={this.handleDeleteCard} />
           <Footer />
