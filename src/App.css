@@ -1,0 +1,25 @@
+.App {
+    width: 100%;
+	margin: 0 auto;
+	min-height: 97vh;
+	display: flex;
+	position: relative;
+}
+
+.main{
+    width: 80%;
+	margin-right: 230px;
+}
+
+.Instruction{
+    height: 100%;
+	overflow: auto;
+	position: fixed;
+    right: 0;
+	width: 233px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid black ;
+    padding-left: 5px;
+}
