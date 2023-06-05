@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./Main.css";
+import cls from "./Main.module.scss";
 import Card from "../Card/Card";
 
 export interface CardState {
@@ -14,7 +14,7 @@ interface MainProps {
 
 export const Main: FC<MainProps> = ({ cards, handleDelete }) => {
   return (
-    <div className="Main">
+    <div className={cls.Main}>
       {cards.map((card) => (
         <Card
           key={card.id}

@@ -1,58 +1,42 @@
 import Footer from "./Components/Footer/Footer";
-import Header from "./Components/Header/Header";
+import Header, {
+  HeaderProps,
+  handleAddCard,
+  handleSortCard,
+} from "./Components/Header/Header";
 import Instruction from "./Components/Instruction/Instruction";
-import { CardState, Main } from "./Components/Main/Main";
-import "./App.css";
-import { Component } from "react";
+import { Main } from "./Components/Main/Main";
+import { useState } from "react";
+import cls from "./App.module.scss";
 
-interface AppState {
-  cards: CardState[];
+interface CardState {
+  id: number;
+  number: number;
 }
 
-class App extends Component<{}, AppState> {
-  constructor(props: {}) {
-    super(props);
-    this.state = { cards: [] };
-  }
+const App: React.FC = () => {
+  const [cards, setCards] = useState<CardState[]>([]);
 
-  handleAddCard = () => {
-    const newOnes = {
-      id: Math.random(),
-      number: Math.floor(Math.random() * 1000),
-    };
-    this.setState((prevState) => ({ 
-      cards: [...prevState.cards, newOnes] 
-    }));
+  const handleDeleteCard = (id: number) => {
+    const updatedCards = cards.filter((card) => card.id !== id);
+    setCards(updatedCards);
   };
 
-  handleSortCard = () => {
-    const sortedOnes = [...this.state.cards].sort(
-      (a, b) => a.number - b.number
-      );
-    this.setState({ cards: sortedOnes });
+  const headerProps: HeaderProps = {
+    addCard: () => handleAddCard(cards, setCards),
+    sortCard: () => handleSortCard(cards, setCards),
   };
 
-  handleDeleteCard = (id: number) => {
-    const deletedCard = this.state.cards.filter((card) => card.id !== id);
-    this.setState({ cards: deletedCard });
-  };
-
-  render() {
-    const { cards } = this.state;
-
-    return (
-      <div className="App">
-        <div className="main">
-          <Header
-            addCard={this.handleAddCard}
-            sortCard={this.handleSortCard}
-          />
-          <Main cards={cards} handleDelete={this.handleDeleteCard} />
-          <Footer />
-        </div>
-        <Instruction className="Instruction" />
+  return (
+    <div className={cls.App}>
+      <div className={cls.main}>
+        <Header {...headerProps} />
+        <Main cards={cards} handleDelete={handleDeleteCard} />
+        <Footer />
       </div>
-    );
-  }
-}
+      <Instruction className={cls.Instruction} />
+    </div>
+  );
+};
+
 export default App;

@@ -1,8 +1,8 @@
-import './Footer.css';
+import cls from  './Footer.module.scss';
 
 const Footer = () => {
     return(
-        <footer className='Footer'>
+        <footer className={cls.Footer}>
             <p>&copy; 2023 Company</p>
         </footer>
     );

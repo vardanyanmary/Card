@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./Card.css";
+import cls from "./Card.module.scss";
 
 interface CardProps {
   number: number;
@@ -8,14 +8,17 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ number, onDelete }) => {
   return (
-    <div className="card">
-    <div className="Icon">
-      <button className="deleteBtn" onClick={onDelete}> X </button>
+    <div className={cls.card}>
+      <div className={cls.Icon}>
+        <button className={cls.deleteBtn} onClick={onDelete}>
+          {" "}
+          X{" "}
+        </button>
+      </div>
+      <div className={cls.cardContent}>
+        <p className={cls.Number}>{number}</p>
+      </div>
     </div>
-    <div className="cardContent">
-      <p className="Number">{number}</p>
-    </div>
-  </div>
   );
 };
 

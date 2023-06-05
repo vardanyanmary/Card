@@ -1,3 +1,5 @@
+import cls from './Instruction.module.scss'
+
 interface InstructionProps{
     className ?: string 
 }
